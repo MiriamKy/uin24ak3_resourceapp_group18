@@ -1,13 +1,15 @@
 import Navtest from "./Navtest"
 
-export default function Layout(){
+export default function Layout({children}){
     return (
-        <section>
-            <h1>Layout</h1>
-            <Navtest />
-            {/* <header>
+        <>
+            <header>
+                <h1>Layout</h1>
                 <Navtest />
-            </header> */}
-        </section>
+            </header>
+            <main>
+                {children}
+            </main>
+        </>
     )
 }

@@ -1,7 +1,7 @@
 export default function Css(){
     return(
         <section>
-             <h3></h3>
+            <h1>CSS</h1> 
         </section>
     )
 }
