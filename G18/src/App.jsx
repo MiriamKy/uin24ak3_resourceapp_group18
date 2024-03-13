@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import Html from "/src/components/Html";
+import Css from "/src/components/Css";
+import Layout from "./components/Layout";
 
 import "./App.css";
 
+
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <section id="innhold">
-        <nav>
-          <ul id="knapper"></ul>
-        </nav>
-        <main id="aktivtInnhold"></main>
-      </section>
+      <Layout>
+      <Routes>
+        <Route path="html" element={<Html />}></Route>
+        <Route path="css" element={<Css />}></Route>
+      </Routes>
+      </Layout>
+     
     </>
   );
 }
