@@ -8,7 +8,7 @@ export default function Layout({children}){
                 <Navtest />
             </header>
             <main>
-                {children}
+            {children}
             </main>
         </>
     )
