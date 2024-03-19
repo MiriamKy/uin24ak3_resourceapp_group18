@@ -3,7 +3,8 @@ import Html from "/src/components/Html";
 import Css from "/src/components/Css";
 import Layout from "./components/Layout";
 
-import "./App.css";
+import "/src/Css/sass/main.scss"
+//import "./App.css";
 
 
 function App() {

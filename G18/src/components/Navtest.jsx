@@ -8,12 +8,14 @@ export default function Navtest(){
     return (
       <nav>
             <ul>
-                <li><Link to="html">html</Link></li>
+                <li><Link to="html">HTML</Link></li>
                 <li><Link to="css">CSS</Link></li>
-                <li><Link to="map">JavaScript</Link></li>
-                <li><Link to="map">REACT</Link></li>
-                <li><Link to="map">Sanity</Link></li>
+                <li><Link to="#">JavaScript</Link></li>
+                <li><Link to="#">React</Link></li>
+                <li><Link to="#">Headless CMS</Link></li>
             </ul>
+
+          
         </nav> 
 
     )
