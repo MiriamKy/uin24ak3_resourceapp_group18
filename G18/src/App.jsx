@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import Html from "/src/components/Html";
-import Css from "/src/components/Css";
+
 import Layout from "./components/Layout";
 
 import "/src/Css/sass/main.scss"
