@@ -3,8 +3,6 @@ import { resources } from "./assets/ressurser";
 import "./App.css";
 import Content from "./components/Content";
 import { Routes, Route } from "react-router-dom";
-import Html from "/src/components/Html";
-import Css from "/src/components/Css";
 import Layout from "./components/Layout";
 
 import "/src/Css/sass/main.scss"
@@ -15,12 +13,6 @@ function App() {
 
   return (
     <>
-      {/* <section id="innhold">
-        <nav>
-          <ul id="knapper"></ul>
-        </nav>
-        <main id="aktivtInnhold"></main>
-      </section> */}
       <Content title={resources.title} url={resources.url} category={resources.category}/>
       <Layout>
       <Routes>
