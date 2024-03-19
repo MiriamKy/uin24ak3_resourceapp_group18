@@ -1,67 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
-/*Deklarerer variabler for farger og fonter bestemt i oppgaveteksten*/
-:root {
-    --mørkblå: #2A324B;
-    --mellomblå: #58699D;
-    --lysblå: #E1E5EE;
-    --hvit: #fff;
 
-    --font:'Montserrat', sans-serif;
-    --fontsize: 15px;
-    --bredde: 800px;
-}
+//Variabler for farger og fonter bestemt i oppgaveteksten
+$darkblue: #2A324B;
+$medblue: #58699D;
+$lightblue: #E1E5EE;
+$white: #fff;
+$black: #000;
+
+$font: 'Montserrat', sans-serif;
+$fontsize: 15px;
+$width: 1000px;
 
 /* Bestemmer at bakgrunnen på hele siden skal være lys blå ved å referere til body i index.html. */
 body {
-    background-color: var(--lysblå);
+    background-color: $lightblue;
+    max-width: 1400px;
+
+    /* i arbeidskrav2 var det en div-tag som "rammet inn" hele nav-baren. Disse reglene er satt på div-tag med id root i dette tilfellet. */
+    #root {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        min-height: 500px;
+        margin-top: 10rem;
+        max-width: $width;
+        font-family: $font;
+        font-size: $fontsize;
+        color: $darkblue;
+
+        header {
+            nav {
+                ul {
+                    width: 100%;
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+                    padding: 0;
+                    margin: 0;
+    
+                    li {
+                        display: block;
+                        background-color: $darkblue;
+                        padding: 1rem 2rem;
+                        color: $white;
+                        font-family: $font;
+                        font-size: $fontsize;
+                        text-decoration: none;
+                        font-weight: 700;
+                        border-style: none;
+    
+                        &:hover {
+                            background-color: $white;
+                            color: $darkblue;
+                        }
+
+                        a {
+                            padding: 1rem 2rem;
+                            width: inherit;
+                            height: auto;
+                            font-weight: 700;
+                            color: $white;
+
+                            &:hover {
+                                color: $darkblue;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        main {
+            background-color: $white;
+            padding: 3rem;
+        }
+
+      
+    
+    }
+
 }
 
-/* Her har jeg brukt en div-tag til å "ramme inn" navigasjons-baren og feltet for relevant innhold (main).
-Derfor bruker jeg en klasse når jeg skal stilsette dette elementet, fordi en "div" kunne vært hva som helst, 
-og det er bedre å kalle det for "innhold", mtp at den referansen sier mer om hva vi gjør og hvor vi er */
-#innhold {
-    display: block;
-    width: 100%;
-    margin: 0 auto;
-    min-height: 500px;
-    margin-top: 10rem;
-    max-width: var(--bredde);
-    font-family: var(--font);
-    font-size: var(--fontsize);
-    color: var(--mørkblå);
-}
 
 /* Når jeg vil stilsette et html-element som er i neste ledd, er det ofte best practice å referere gjennom stien inn til elementet - først til nav, så til ul. */
-nav ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: 0;
-    margin: 0;
-}
+
 
 /* Her må jeg stilsette med fonter og farger på nytt, fordi i flere nettlesere er button-tagen unntatt de overordnede stilene, som jeg har satt i #innhold*/
-nav button {
-    display: block;
-    background-color: var(--mørkblå);
-    padding: 2rem;
-    color: var(--hvit);
-    font-family: var(--font);
-    font-size: var(--fontsize);
-    text-decoration: none;
-    font-weight: 700;
-    border-style: none;
+
+
+@media screen and (max-width: 625px){
+    body {
+       
+
+        #root {
+            header {
+                nav {
+                    ul {
+                        display: inline-block;
+                    }
+                }
+            }
+            main {
+                border-top: 1px solid $lightblue;
+            }
+        }
+    }
 }
 
-nav ul li :hover {
-    background-color: var(--hvit);
-    color: var(--mørkblå);
-}
-
-main {
-    background-color: var(--hvit);
-    padding: 3rem;
-}
