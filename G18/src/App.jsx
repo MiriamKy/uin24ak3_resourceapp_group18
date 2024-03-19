@@ -4,7 +4,7 @@ import Css from "/src/components/Css";
 import Layout from "./components/Layout";
 
 import "/src/Css/sass/main.scss"
-import "./App.css";
+//import "./App.css";
 
 
 function App() {
