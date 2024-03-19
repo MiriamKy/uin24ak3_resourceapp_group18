@@ -1,10 +1,10 @@
-import Navtest from "./Navtest"
+import Resources from "./Resources"
 
 export default function Layout({children}){
     return (
         <>
             <header>
-                <Navtest />
+                <Resources />
             </header>
             <main>
                 {children} 
