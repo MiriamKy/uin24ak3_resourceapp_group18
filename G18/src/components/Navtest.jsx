@@ -10,10 +10,12 @@ export default function Navtest(){
             <ul>
                 <li><Link to="html">HTML</Link></li>
                 <li><Link to="css">CSS</Link></li>
-                <li><Link to="map">JavaScript</Link></li>
-                <li><Link to="map">React</Link></li>
-                <li><Link to="map">Headless CMS</Link></li>
+                <li><Link to="#">JavaScript</Link></li>
+                <li><Link to="#">React</Link></li>
+                <li><Link to="#">Headless CMS</Link></li>
             </ul>
+
+          
         </nav> 
 
     )
