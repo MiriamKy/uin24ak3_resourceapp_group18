@@ -1,14 +1,16 @@
+
 import Resources from "./Resources"
 
-export default function Layout({children}){
+export default function Layout(){
+    
     return (
         <>
             <header>
                 <Resources />
             </header>
-            <main>
-                {children} 
-            </main>
+           {/*  <main>
+                {children}
+            </main> */}
         </>
     )
 }
