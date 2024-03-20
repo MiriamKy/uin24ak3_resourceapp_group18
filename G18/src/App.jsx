@@ -14,7 +14,6 @@ function App() {
     <>
       <Layout>
       <Routes>
-        
         <Route path=":slug" element={<Resources  />} />
       </Routes>
       </Layout>

@@ -15,7 +15,7 @@ export default function Resources(){
         ? 
         setContent(sources) 
         : 
-        console.log("nada");
+        console.log("nada"); // useEffect istedet for handleClick?
     }
 
     return(
