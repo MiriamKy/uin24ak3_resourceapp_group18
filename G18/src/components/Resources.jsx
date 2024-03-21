@@ -1,91 +1,67 @@
-/* import React from "react";
-import resources from "../assets/ressurser.js"
-import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import resources from "../assets/ressurser";
+import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-const Resources = () => {
+
+export default function Resources({categories}){
+
     const {slug} = useParams();
-    const filteredResources = resources.filter(resource => resource.category === slug)
-    
+
+    // useState til den valgte kategorien
+    const [category, setCategory] = useState(slug);
+
+
+    useEffect(() => {
+        setCategory(slug);
+    }, [slug]);
+
+    console.log(category);
+
+    // ressurs.js har duplikater (flere kateogier med samme navn), så da brukter jeg Set for å fjerne de ved å lage en ny array som kan brukes videre basert på category.
+
+    // layouten returnerer først kategoriene, deretter linkene
     return (
-        <Layout slug={slug} filteredResources={filteredResources}>
-            <div>
-                <ul>
-                    {filteredResources.map((resource, index) => {
-                        return (
-                            <li key={`${resource.category}-${index}`}>
-                                <a href={resource.url}>{resource.title}</a>
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
-        </Layout>
-    );
-}
-
-export default Resources;
-
-/*
-const Resources = () => {
-    const {slug} = useParams();
-    const filteredResources = resources.filter(resource => resource.category === slug)
-
-  return (
-    <div>
-      <ul>
-        {filteredResources.map((resource, index) => {
-          return (
-            <li key={`${resource.category}-${index}`}>
-              <a href={resource.url}>{resource.title}</a>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  );
-}
-
-export default Resources; */
-/*
-export default function Resources(){
-    const { category } = useParams();
-    const [content, setContent] = useState([]);
-
-    const handleClick = (category) => {
-        const sources = resources.filter((source) => source.category === category);
-        sources 
-        ? 
-        setContent(sources) 
-        : 
-        console.log("nada"); 
-    }
-
-    // useEffect istedet for handleClick
-
-    return(
         <>
-        <header>
-            <nav>
-                <ul>
-                    <li><Link to="/html" onClick={() => handleClick('html')}>HTML</Link></li>
-                    <li><Link to="/css" onClick={() => handleClick('css')}>CSS</Link></li>
-                    <li><Link to="/javascript" onClick={() => handleClick('javascript')}>JavaScript</Link></li>
-                    <li><Link to="/react" onClick={() => handleClick('react')}>React</Link></li>
-                    <li><Link to="/headless-cms" onClick={() => handleClick('headless-cms')}>Headless CMS</Link></li>
+                <header>
+                    <nav>
+                    
+                        {categories.map((category, index) =>
+                        <h2 key={index}><Link to={`/${category}`}>{category}</Link></h2>)}
+                
+                </nav>
+                </header>
+                <main>
+                    <h3>{category}</h3>
+                    <ul>
+                {resources.filter(resource => resource.category === category).map((resource, index) =>
+                    
+                        <li key={index}>
+                            <a href={resource.url}>{resource.title}</a>
+                        </li>                        
+                    
+                )}
                 </ul>
-            </nav>
-        </header>
-        <main category={category}>
-            {content.map((item, index) => (
-                <article key={index}>
-                    <Link to={item.url}>{item.title}</Link>
-                </article>
-            ))}
-        </main>
+                </main>
         </>
     )
 }
 
+/* 
 
-    }*/  
+gammel ressurs 
+
+import React from "react";
+import { Link } from "react-router-dom";
+//import Category from "./Category";
+
+
+export default function Ressurs({category, setCategory}){
+
+    return (
+        <>
+       <h2><Link to={`/${category}`} onClick={() => setCategory(category)}>{category}</Link></h2>
+         
+        </>
+    )
+}
+*/

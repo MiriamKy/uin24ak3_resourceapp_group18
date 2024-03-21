@@ -1,27 +1,23 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-//import Resources from "./components/Resources";
-import Ressurs from "./components/Ressurs";
+import Resources from "./components/Resources";
+import Home from "./components/Home";
+import resources from "./assets/ressurser";
 
 import "/src/Css/sass/main.scss"
-//import Category from "./components/Category";
 
+function App() { 
 
+  const categories = [...new Set(resources.map(resource => resource.category))];
 
-function App() {
   return (
     <>
-      <Layout>
-<<<<<<< HEAD
+    <Layout>
       <Routes>
-        <Route path="/:slug" element={<Ressurs  />} />
+        <Route path="/" element={<Home categories={categories}/> }/>
+        <Route path="/:slug" element={<Resources categories={categories}/> }/>
       </Routes>
-=======
-        <Routes>
-            <Route path="/:slug" element={<Resources  />} />
-        </Routes>
->>>>>>> 1be34ea5877ac539c5cf2e957015218e03a1d937
-      </Layout>
+    </Layout>
     </>
   );
 }
