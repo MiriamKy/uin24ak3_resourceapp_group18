@@ -3,7 +3,51 @@ import resources from "../assets/ressurser.js"
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
+const Resources = () => {
+    const {slug} = useParams();
+    const filteredResources = resources.filter(resource => resource.category === slug)
+    
+    return (
+        <Layout slug={slug} filteredResources={filteredResources}>
+            <div>
+                <ul>
+                    {filteredResources.map((resource, index) => {
+                        return (
+                            <li key={`${resource.category}-${index}`}>
+                                <a href={resource.url}>{resource.title}</a>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </Layout>
+    );
+}
 
+export default Resources;
+
+/*
+const Resources = () => {
+    const {slug} = useParams();
+    const filteredResources = resources.filter(resource => resource.category === slug)
+
+  return (
+    <div>
+      <ul>
+        {filteredResources.map((resource, index) => {
+          return (
+            <li key={`${resource.category}-${index}`}>
+              <a href={resource.url}>{resource.title}</a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  );
+}
+
+export default Resources; */
+/*
 export default function Resources(){
     const { category } = useParams();
     const [content, setContent] = useState([]);
