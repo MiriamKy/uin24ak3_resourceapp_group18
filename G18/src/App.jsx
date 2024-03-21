@@ -10,9 +10,9 @@ function App() {
   return (
     <>
       <Layout>
-      <Routes>
-        <Route path="/:slug" element={<Resources  />} />
-      </Routes>
+        <Routes>
+            <Route path="/:slug" element={<Resources  />} />
+        </Routes>
       </Layout>
     </>
   );

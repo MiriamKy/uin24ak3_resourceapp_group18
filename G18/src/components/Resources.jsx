@@ -2,51 +2,50 @@ import React from "react";
 import resources from "../assets/ressurser.js"
 import { useParams } from "react-router-dom";
 
-
-/* const Resources = () => {
-    const {slug} = useParams();
-    const filteredResources = resources.filter(resource => resource.category === slug)
-    const uniqueResources = Array.from(new Set(filteredResources.map(resource => resource.title)))
-        .map(title => {
-            return filteredResources.find(resource => resource.title === title);
-        });
-  
-    return (
-        <div>
-            {uniqueResources.map((resource) => {
-                return (
-                    <li key={resource.title}>
-                        <a href={resource.url}></a>
-                            {resource.title}
-                        </a>
-                    </li>
-                )
-            })}
-        </div>
-    )
-}; */
-
 const Resources = () => {
     const {slug} = useParams();
     const filteredResources = resources.filter(resource => resource.category === slug)
-    //console.log(category + "hei")
+    
+    return (
+        <Layout slug={slug} filteredResources={filteredResources}>
+            <div>
+                <ul>
+                    {filteredResources.map((resource, index) => {
+                        return (
+                            <li key={`${resource.category}-${index}`}>
+                                <a href={resource.url}>{resource.title}</a>
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </Layout>
+    );
+}
+
+export default Resources;
+
+/*
+const Resources = () => {
+    const {slug} = useParams();
+    const filteredResources = resources.filter(resource => resource.category === slug)
+
   return (
     <div>
-      {filteredResources.map((resource) => {
-        return (
-            <li key={resource.title}>
-            <a
-              href={resource.url}>
-              {resource.title}
-            </a>
-          </li>
-        );
-      })}
+      <ul>
+        {filteredResources.map((resource, index) => {
+          return (
+            <li key={`${resource.category}-${index}`}>
+              <a href={resource.url}>{resource.title}</a>
+            </li>
+          )
+        })}
+      </ul>
     </div>
   );
 }
 
-export default Resources;
+export default Resources; */
 /*
 export default function Resources(){
     const { category } = useParams();
