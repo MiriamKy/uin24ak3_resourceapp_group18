@@ -2,24 +2,19 @@ import resources from "../assets/ressurser";
 import { useParams, Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
+// I Resources-komponente har vi:
+// useState (category) henter den valgte kategorien fra slug-en siden url-en nå har fått en slug (som legges til/oppdateres ved hjelp av routingen)
+// Så skrives og returneres html-strukturen ved hjelp av prop-en categories (den filtrerte arrayen), Staten category, og direkte fra ressurser.js-filen
 
 export default function Resources({categories}){
 
     const {slug} = useParams();
-
-    // useState til den valgte kategorien
     const [category, setCategory] = useState(slug);
-
 
     useEffect(() => {
         setCategory(slug);
     }, [slug]);
 
-    console.log(category);
-
-    // ressurs.js har duplikater (flere kateogier med samme navn), så da brukter jeg Set for å fjerne de ved å lage en ny array som kan brukes videre basert på category.
-
-    // layouten returnerer først kategoriene, deretter linkene
     return (
         <>
                 <header>
@@ -45,23 +40,3 @@ export default function Resources({categories}){
         </>
     )
 }
-
-/* 
-
-gammel ressurs 
-
-import React from "react";
-import { Link } from "react-router-dom";
-//import Category from "./Category";
-
-
-export default function Ressurs({category, setCategory}){
-
-    return (
-        <>
-       <h2><Link to={`/${category}`} onClick={() => setCategory(category)}>{category}</Link></h2>
-         
-        </>
-    )
-}
-*/
