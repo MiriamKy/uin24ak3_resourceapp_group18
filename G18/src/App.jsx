@@ -12,15 +12,9 @@ function App() {
   return (
     <>
       <Layout>
-<<<<<<< HEAD
       <Routes>
         <Route path="/:slug" element={<Ressurs  />} />
       </Routes>
-=======
-        <Routes>
-            <Route path="/:slug" element={<Resources  />} />
-        </Routes>
->>>>>>> 1be34ea5877ac539c5cf2e957015218e03a1d937
       </Layout>
     </>
   );
