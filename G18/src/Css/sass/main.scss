@@ -10,102 +10,135 @@ $black: #000;
 
 $font: 'Montserrat', sans-serif;
 $fontsize: 15px;
-$width: 1000px;
 
 /* Bestemmer at bakgrunnen på hele siden skal være lys blå ved å referere til body i index.html. */
 body {
     background-color: $lightblue;
-    max-width: 1400px;
 
     /* i arbeidskrav2 var det en div-tag som "rammet inn" hele nav-baren. Disse reglene er satt på div-tag med id root i dette tilfellet. */
     #root {
-        display: block;
+        display: inline-block;
         width: 100%;
         margin: 0 auto;
         min-height: 500px;
         margin-top: 10rem;
-        max-width: $width;
+        max-width: 1000px;
         font-family: $font;
-        font-size: $fontsize;
-        color: $darkblue;
+        font-size: $fontsize * 1.1;
 
-        header {
-            nav {
-                ul {
-                    width: 100%;
-                    list-style: none;
+        section {
+            header {
+                nav{
                     display: flex;
                     justify-content: space-between;
-                    text-align: center;
-                    padding: 0;
-                    margin: 0;
-    
-                    li {
-                        display: block;
+                    width: 100%;
+
+                    h2 {
                         background-color: $darkblue;
                         padding: 1rem 2rem;
+                        margin: 0;
                         color: $white;
+
                         font-family: $font;
-                        font-size: $fontsize;
-                        text-decoration: none;
+                        font-size: $fontsize * 1.2;
                         font-weight: 700;
-                        border-style: none;
-    
+
                         &:hover {
-                            background-color: $white;
-                            color: $darkblue;
+                        background-color: $white;
+                        color: $darkblue;
+                        }
+
+                        &:active {
+                        background-color: $white;
+                        color: $darkblue;
                         }
 
                         a {
                             padding: 1rem 2rem;
-                            width: inherit;
-                            height: auto;
                             font-weight: 700;
                             color: $white;
 
                             &:hover {
                                 color: $darkblue;
+
+
+                        }
+                    }
+                }   
+            }            
+        }
+        main {
+            background-color: $white;
+            padding: 3rem;
+
+            h3 {
+                color: $darkblue;
+                padding: 1rem 0;
+                text-transform: capitalize
+            }
+
+            ul {
+                
+                li {
+                    list-style: none;
+                    a {
+                        color: $medblue;
+
+                        &:hover {
+                            color: $darkblue;
+                            font-weight: 400;
+                    }
+                    }
+                }
+            }
+        }
+    }
+    }
+}
+
+@media screen and (max-width: 950px){
+    nav {
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+            font-size: $fontsize;
+        }
+    }
+    main {
+        padding: 1.5rem;
+
+        h3 {
+            text-align: center;
+            padding: 0;
+        }
+        
+        ul {
+            text-align: center;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    body {
+        #root {
+            max-width: 100%;
+            margin-top: 2rem;
+
+            section {
+                header {
+                    nav {
+
+                        h2 {
+                            padding: 1rem;
+                            font-size: $fontsize * 0.8;
+
+                            a {
+                                padding: 0.5rem 1rem;
                             }
                         }
                     }
                 }
             }
         }
-
-        main {
-            background-color: $white;
-            padding: 3rem;
-        }
-
-      
-    
-    }
-
-}
-
-
-/* Når jeg vil stilsette et html-element som er i neste ledd, er det ofte best practice å referere gjennom stien inn til elementet - først til nav, så til ul. */
-
-
-/* Her må jeg stilsette med fonter og farger på nytt, fordi i flere nettlesere er button-tagen unntatt de overordnede stilene, som jeg har satt i #innhold*/
-
-
-@media screen and (max-width: 625px){
-    body {
-       
-
-        #root {
-            header {
-                nav {
-                    ul {
-                        display: inline-block;
-                    }
-                }
-            }
-            main {
-                border-top: 1px solid $lightblue;
-            }
-        }
     }
 }
-
